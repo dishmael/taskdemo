@@ -34,57 +34,57 @@ export const TaskController = ({}:TaskControllerProps) => {
     }, []);
 
     // (C)reate
-    const handleCreate = (task:Task) :void => {
-        fetch(`${url}`, { 
+    function handleCreate(task: Task): void {
+        fetch(`${url}`, {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              title: task.title,
-              completed: task.completed,
-              description: task.description,
+                title: task.title,
+                completed: task.completed,
+                description: task.description,
             })
-          })
-          .then( () => handleRead() )
-          .catch( error => log.error( () => 'Create Error: ', error ) );
+        })
+            .then(() => handleRead())
+            .catch(error => log.error(() => 'Create Error: ', error));
     }
     
     // (R)ead
-    const handleRead = (opt?: any) :void => {
+    function handleRead(opt?: any): void {
         fetch(url, opt)
             .then(response => response.json())
-            .then(data => { setTasks(data); log.debug(() => `Fetched ${data.length} tasks`) })
+            .then(data => { setTasks(data); log.debug(() => `Fetched ${data.length} tasks`); })
             .catch(error => {
-                if ( error instanceof Error && error.name !== 'AbortError') {
-                    log.error( () => 'Read Error: ', error );
+                if (error instanceof Error && error.name !== 'AbortError') {
+                    log.error(() => 'Read Error: ', error);
                 }
             });
     }
 
     // (U)pdate
-    const handleUpdate = (task:Task) :void => {
-        fetch(`${url}/${task.id}`, { 
+    function handleUpdate(task: Task): void {
+        fetch(`${url}/${task.id}`, {
             method: 'PUT',
             headers: {
-              'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              title: task.title,
-              completed: task.completed,
-              description: task.description,
+                title: task.title,
+                completed: task.completed,
+                description: task.description,
             })
-          })
-          .then( () => handleRead() )
-          .catch( error => log.error( () => 'Update Error: ', error ) );
+        })
+            .then(() => handleRead())
+            .catch(error => log.error(() => 'Update Error: ', error));
     }
     
     // (D)elete
-    const handleDelete = (id?:number) :void => {
-        if (!id) { return }
+    function handleDelete(id?: number): void {
+        if (!id) { return; }
         fetch(`${url}/${id}`, { method: 'DELETE' })
-            .then( () => handleRead() )
-            .catch( error => log.error( () => 'Delete Error: ', error ) );
+            .then(() => handleRead())
+            .catch(error => log.error(() => 'Delete Error: ', error));
     }
 
     // Return the view
