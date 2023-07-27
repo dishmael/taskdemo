@@ -1,14 +1,15 @@
+# Taskdemo
 This is a simple demo of a React app to manage tasks.
 
-# Files of Interest
+## Files of Interest
 src
-## |-- App.css
+|-- App.css
 |-- App.test.tsx
-## |-- App.tsx
-## |-- LogConfig.tsx
+|-- App.tsx
+|-- LogConfig.tsx
 |-- features
-## |   |-- hello.tsx
-## |   `-- tasks.tsx
+|   |-- hello.tsx
+|   `-- tasks.tsx
 |-- index.css
 |-- index.tsx
 |-- logo.svg
