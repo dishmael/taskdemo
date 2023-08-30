@@ -3,6 +3,8 @@ import { Form, FormControl, Modal, ModalBody, ModalFooter, ModalTitle,
     Button, FormGroup, FormLabel, Row, ModalHeader, Table, FormCheck } from 'react-bootstrap';
 import { getLogger } from '../LogConfig';
 
+import { useFetch } from './fetch'
+
 const log = getLogger("model.Task");
 
 interface Task {
