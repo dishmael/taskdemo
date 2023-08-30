@@ -8,6 +8,6 @@ src
 |-- App.tsx
 |-- LogConfig.tsx
 |-- features
-|   |-- hello.tsx
-|   `-- tasks.tsx
+    |-- hello.tsx
+    `-- tasks.tsx
 ```
